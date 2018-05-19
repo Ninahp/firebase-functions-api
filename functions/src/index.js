@@ -18,6 +18,15 @@ app.get("/timestamp", (request, response) => {
     response.send(now);
 });
 
+app.get("/timestamp-cached", (request, response) => {
+    response.set('Cache-Control', 'public, max-age=300, s-maxage=600')
+
+    var now = `${Date.now()}`;
+    console.log('Time now', now);
+
+    response.send(now);
+});
+
 exports.app = functions.https.onRequest(app);
 
 exports.addMessage = functions.https.onRequest((req, res) => {
