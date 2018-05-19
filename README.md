@@ -1,2 +1,2 @@
-# firebase-functions-api
-Sample APi using Firebase Functions and Firebase hosting
+# Angular 6 + Bulma app using Firebase Functions, Firebase Hosting and Cloud Firestore
+[App still under active development. Welcome to contribute :)]
