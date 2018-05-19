@@ -1,7 +1,7 @@
 const express = require("express");
 const functions = require('firebase-functions');
 const admin = require("firebase-admin");
-const serviceAccount = require("./configs/inspiring-quotes-17dd9-firebase-adminsdk-srd0a-35f493b931.json");
+const serviceAccount = require("./configs/inspiring-quotes-firebase-adminsdk.json");
 
 admin.initializeApp({
     credential: admin.credential.cert(serviceAccount)
