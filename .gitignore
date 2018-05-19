@@ -1,1 +1,23 @@
+# dependencies
+functions/node_modules
+
+# Custom keys
+inspiring-quotes-firebase-adminsdk.json
+
+# Logs
+logs
+*.log
+npm-debug.log*
 functions/firebase-debug.log
+
+# IDEs and editors
+
+*.launch
+
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.sonarlint
