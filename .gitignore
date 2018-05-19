@@ -14,3 +14,4 @@ logs
 #IDE
 "**/.eslintrc.json
 .sonarlint
+node_modules/
