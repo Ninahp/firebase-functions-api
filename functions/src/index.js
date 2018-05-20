@@ -1,9 +1,6 @@
 const express = require("express");
-const engines = require('engines');
-const consolidate = require('consolidate');
-const firebaseAdmin = require("firebase-admin");
-const firebaseFunctions = require('firebase-functions');
-const serviceAccount = require("./configs/inspiring-quotes-firebase-adminsdk.json");
+const engines = require('consolidate');
+const dataApp = require("./data.js");
 
 const firebaseApp = firebaseAdmin.initializeApp(firebaseFunctions.config().firebaseAdmin);
 
@@ -13,19 +10,23 @@ app.engine('hbs', engines.handlebars)
 app.set('views', './views');
 app.set('view engine', 'hbs');
 
-function getFacts() {
-    const ref = firebaseApp.database().ref('facts');
-    return ref.once('value').then(snapshot => snapshot.value)
-}
 
 app.get("/", (request, response) => {
     response.set('Cache-Control', 'public, max-age=300, s-maxage=600');
-    getFacts.then(facts => {
+    dataApp.getFacts('facts').then(facts => {
         response.render('index', {facts});
     });
     response.send('index', {
         facts
     });
+});
+
+app.get("/facts", (request, response) => {
+    response.set('Cache-Control', 'public, max-age=300, s-maxage=600');
+    dataApp.getData("facts").then(facts => {
+        response.json(facts);
+    });
+    response.send('error');
 });
 
 exports.app = functions.https.onRequest(app);

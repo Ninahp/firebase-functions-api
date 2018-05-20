@@ -27,18 +27,16 @@ function fetchQuotes() {
 }
 
 function writeQuotes() {
-    var docRef = db.collection('users').doc('alovelace');
+    var docRef = db.collection('users').doc('alovelace'+ new Date().toString());
 
-    var setAda = docRef.set({
+    docRef.set({
         first: 'Ada',
         last: 'Lovelace',
         born: 1815
     });
 
-
-    var aTuringRef = db.collection('users').doc('aturing');
-
-    var setAlan = aTuringRef.set({
+    var aTuringRef = db.collection('users').doc('aturing'+ new Date().toString());
+    aTuringRef.set({
         'first': 'Alan',
         'middle': 'Mathison',
         'last': 'Turing',
