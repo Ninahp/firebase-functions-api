@@ -1,17 +1,11 @@
 # dependencies
 "**/node_modules/**"
 
-"**/npm-debug.log"
-
 # Custom keys
 inspiring-quotes-firebase-adminsdk.json
 
 # Logs
-logs
 *.log
-"**/npm-debug.log"
 
 #IDE
-"**/.eslintrc.json
 .sonarlint
-node_modules/
